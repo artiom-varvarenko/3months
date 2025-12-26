@@ -664,10 +664,43 @@ footer {
         /* Stack on mobile */
     }
 
+    .reasons-section {
+        padding: 3rem 1rem;
+    }
+
+    .carousel-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "card card"
+            "prev next";
+        gap: 1rem;
+        width: 100%;
+    }
+
     .reasons-carousel {
-        width: 280px;
+        grid-area: card;
+        width: 100%;
+        max-width: 300px;
         height: 400px;
-        /* Taller for text */
+        margin: 0 auto;
+    }
+
+    .carousel-btn {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .prev-btn {
+        grid-area: prev;
+        justify-self: end;
+        margin-right: 1rem;
+    }
+
+    .next-btn {
+        grid-area: next;
+        justify-self: start;
+        margin-left: 1rem;
     }
 
     .reason-card-back {
@@ -676,7 +709,6 @@ footer {
 
     .reason-card-back p {
         font-size: 1.1rem;
-        /* Smaller font */
         line-height: 1.4;
     }
 
