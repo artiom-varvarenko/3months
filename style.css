@@ -615,47 +615,11 @@ footer {
     font-family: var(--font-heading);
 }
 
-/* Dramatic Card Styling */
-.dramatic-card .reason-card-back {
-    background-color: #000000;
-    /* Pitch black */
-    color: #ffffff;
-    /* White text */
-    justify-content: center;
-    /* Center content vertically */
-}
-
-.dramatic-card .reason-card-front {
-    background-color: #1a1a1a;
-    /* Dark grey front */
-    color: #ffffff;
-    border-color: #333;
-}
-
+/* Dramatic Card Styling - Simplified */
 .dramatic-card .final-line {
-    font-size: 2rem;
     font-weight: 700;
     font-style: italic;
     color: #ff0000;
-    /* Red */
-    margin-top: 1.5rem;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    /* Subtle glow */
-    animation: pulseRed 2s infinite;
-}
-
-@keyframes pulseRed {
-
-    0%,
-    100% {
-        opacity: 1;
-        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    }
-
-    50% {
-        opacity: 0.8;
-        text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-    }
 }
 
 @media (max-width: 768px) {
