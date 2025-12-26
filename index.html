@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 3 Months, Kristina!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-animation"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Happy 3 Months, Kristina!</h1>
+            <p class="subtitle fade-in delay-1">Celebrating us since 26/09/2025</p>
+            <div class="date-display fade-in delay-2">26/12/2025</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>↓</span>
+        </div>
+    </header>
+
+    <section class="counter-section">
+        <h2>Time We've Been Together</h2>
+        <div id="timer" class="timer-grid">
+            <div class="time-unit">
+                <span id="days">00</span>
+                <label>Days</label>
+            </div>
+            <div class="time-unit">
+                <span id="hours">00</span>
+                <label>Hours</label>
+            </div>
+            <div class="time-unit">
+                <span id="minutes">00</span>
+                <label>Minutes</label>
+            </div>
+            <div class="time-unit">
+                <span id="seconds">00</span>
+                <label>Seconds</label>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <h2>Our Journey So Far</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>The Beginning</h3>
+                    <p>Where it all started. 26/09/2025</p>
+                    <img src="img/beginning.jpg" alt="The Beginning" class="timeline-img">
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Month 1</h3>
+                    <p>Getting to know each other better every day.</p>
+                    <img src="img/1st.JPG" alt="Month 1" class="timeline-img">
+
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Month 2</h3>
+                    <p>Creating beautiful memories together.</p>
+                    <img src="img/2nd.JPG" alt="Month 2" class="timeline-img">
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Month 3</h3>
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dashboard-section vibe-check-theme">
+        <h2>Kristina's Vibe</h2>
+        <div class="dashboard-grid">
+            <!-- Character Card -->
+            <div class="dashboard-card vibe-card">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m2 4 3 12h14l3-12-6 7-4-3-4 3-6-7zm0 0" />
+                    </svg>
+                </div>
+                <h3>Character</h3>
+                <div class="card-content">
+                    <p class="placeholder-text">Holly Golightly</p>
+                    <p class="card-desc">Breakfast at Tiffany's</p>
+                </div>
+            </div>
+
+            <!-- Song Card -->
+            <div class="dashboard-card vibe-card" id="songCard">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18V5l12-2v13" />
+                        <circle cx="6" cy="18" r="3" />
+                        <circle cx="18" cy="16" r="3" />
+                    </svg>
+                </div>
+                <h3>Song</h3>
+                <div class="card-content">
+                    <button class="play-btn vibe-btn" id="playBtn" onclick="playSong()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                            fill="currentColor" stroke="none">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        Play
+                    </button>
+                </div>
+                <div id="player-container" style="display: none;">
+                    <!-- YouTube Iframe will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Color Card -->
+            <div class="dashboard-card vibe-card">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="13.5" cy="6.5" r=".5" />
+                        <circle cx="17.5" cy="10.5" r=".5" />
+                        <circle cx="8.5" cy="7.5" r=".5" />
+                        <circle cx="6.5" cy="12.5" r=".5" />
+                        <path
+                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                    </svg>
+                </div>
+                <h3>Color</h3>
+                <div class="card-content">
+                    <div class="color-swatch" style="background-color: #808000; border-color: #fff;"></div>
+                    <p class="placeholder-text">Olive Green</p>
+                </div>
+            </div>
+
+            <!-- Drink Card -->
+            <div class="dashboard-card vibe-card">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m7 8 2-5h6l2 5" />
+                        <path d="M19 8v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8" />
+                        <path d="m12 8-1-6h2" />
+                    </svg>
+                </div>
+                <h3>Drink</h3>
+                <div class="card-content">
+                    <p class="placeholder-text">Blueberry Galaxy</p>
+                    <p class="card-desc">by Organic Blendz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reasons-section">
+        <h2>21 Reasons I Love You</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" onclick="prevReason()">&#10094;</button>
+
+            <div class="reasons-carousel">
+                <!-- Card 1 -->
+                <div class="reason-card active">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>1</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that you don't just agree with me. You challenge my ideas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>2</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that you have a specific scent that isn't just perfume—it’s just you. It smells
+                                like home to me.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>3</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love how wild your hair looks in the morning. You call it a mess, but I think it’s
+                                beautiful.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>4</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love watching how peaceful you look when you’re asleep. Seeing you that relaxed makes
+                                me feel like I need to protect you.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>5</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love how excited you get about the little things. It makes me appreciate them too.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>6</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that whenever something happens to me, good or bad, you are the very first person
+                                I want to tell.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>7</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that we don't always need to be talking. We can just sit in silence together and
+                                it feels perfectly comfortable, not awkward.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>8</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love seeing you work on something. Watching you focus and care so much about something
+                                is incredibly attractive.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 9 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>9</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the way your hand feels in mine. It fits perfectly, like we were made to hold onto
+                                each other.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 10 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>10</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the way you look at me when you think I'm not noticing. It makes me feel like the
+                                most important person in the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 11 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>11</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the way you hug me.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 12 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>12</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the sound of your voice. Just hearing you say my name can instantly change my
+                                mood.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 13 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>13</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that even after all this time, I still get butterflies when we kiss.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 14 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>14</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love your heart. You are genuinely a good person, and being around you makes me want to
+                                be a better man.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 15 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>15</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love how patient you are with me, even on days when I know I'm not the easiest person
+                                to be around.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 16 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>16</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love that out of everyone in the world, you chose me. It’s the best thing that ever
+                                happened to me.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 17 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>17</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the contrast between my hands and yours. Yours are so soft and gentle, it makes me
+                                want to be careful with you.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 18 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>18</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love the face you make when you first see me. That smile is the best welcome home I
+                                could ask for.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 19 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>19</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love listening to you talk about things you know well. You are so smart, and I learn so
+                                much just by being around you.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 20 -->
+                <div class="reason-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>20</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I love how graceful your arms look. You have such a delicate, elegant silhouette that
+                                reminds me of a work of art.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 21 -->
+                <div class="reason-card dramatic-card">
+                    <div class="reason-card-inner">
+                        <div class="reason-card-front">
+                            <span>21</span>
+                        </div>
+                        <div class="reason-card-back">
+                            <p>I loved knowing that no matter what happens tomorrow, we will face it together as a team.
+                            </p>
+                            <p class="final-line">I actually did.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn next-btn" onclick="nextReason()">&#10095;</button>
+        </div>
+        <div class="carousel-indicators">
+            <span id="current-reason-num">1</span> / 21
+        </div>
+    </section>
+
+    <section class="love-note-section">
+        <div class="note-card">
+            <h2>To My Dearest Kristina</h2>
+            <p>
+                No matter where you are, know that I miss you. Know, that i actually wanted you. I wanted it to be you.
+            </p>
+            <button id="loveBtn" class="love-btn">Receive My Love ❤️</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ for you</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
