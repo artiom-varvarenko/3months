@@ -106,17 +106,24 @@ function playSong() {
     // Show the player container
     playerContainer.style.display = 'block';
 
-    // Insert YouTube Iframe (Placeholder ID: dQw4w9WgXcQ - Rick Roll as placeholder, user to replace)
-    // Using a romantic song placeholder: "Perfect" by Ed Sheeran (2Vv-BfVoq4g)
+    // Insert YouTube Iframe with Autoplay
+    // Video ID: n_-W7iqotuc
+    // Note: Autoplay with sound might be blocked by browsers without user interaction first.
+    // We use the IFrame Player API to control volume.
     playerContainer.innerHTML = `
-        <iframe 
-            src="https://www.youtube.com/embed/9DnMDCoKnw8?list=PLOfo22RtmDp8gcNnRvcXb-QZdcIZYDKK8&origin=http://localhost" 
-            title="YouTube video player" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
+        <div id="yt-player"></div>
         <button onclick="stopSong()" style="margin-top: 10px; background: none; border: none; color: #666; cursor: pointer; text-decoration: underline;">Close Player</button>
     `;
+
+    // Load YouTube IFrame API if not already loaded
+    if (!window.YT) {
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    } else {
+        createPlayer();
+    }
 }
 
 function stopSong() {
@@ -168,3 +175,35 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextReason();
     if (e.key === 'ArrowLeft') prevReason();
 });
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+    if (document.getElementById('player-container').style.display === 'block') {
+        createPlayer();
+    }
+}
+
+function createPlayer() {
+    if (player) {
+        player.destroy();
+    }
+    player = new YT.Player('yt-player', {
+        height: '315',
+        width: '100%',
+        videoId: 'n_-W7iqotuc',
+        playerVars: {
+            'autoplay': 1,
+            'controls': 1,
+            'origin': window.location.origin
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.setVolume(30);
+    event.target.playVideo();
+}
