@@ -96,6 +96,8 @@ loveBtn.addEventListener('click', () => {
 });
 
 // Music Player
+let player;
+
 function playSong() {
     const playerContainer = document.getElementById('player-container');
     const cardContent = document.querySelector('#songCard .card-content');
@@ -106,10 +108,7 @@ function playSong() {
     // Show the player container
     playerContainer.style.display = 'block';
 
-    // Insert YouTube Iframe with Autoplay
-    // Video ID: n_-W7iqotuc
-    // Note: Autoplay with sound might be blocked by browsers without user interaction first.
-    // We use the IFrame Player API to control volume.
+    // Insert YouTube Iframe placeholder
     playerContainer.innerHTML = `
         <div id="yt-player"></div>
         <button onclick="stopSong()" style="margin-top: 10px; background: none; border: none; color: #666; cursor: pointer; text-decoration: underline;">Close Player</button>
@@ -130,9 +129,46 @@ function stopSong() {
     const playerContainer = document.getElementById('player-container');
     const cardContent = document.querySelector('#songCard .card-content');
 
+    if (player && typeof player.stopVideo === 'function') {
+        player.stopVideo();
+    }
+
     playerContainer.innerHTML = ''; // Stop video
     playerContainer.style.display = 'none';
     cardContent.style.display = 'block';
+}
+
+// Make callback global and robust
+window.onYouTubeIframeAPIReady = function () {
+    createPlayer();
+}
+
+function createPlayer() {
+    if (player) {
+        try {
+            player.destroy();
+        } catch (e) { console.log(e); }
+    }
+
+    player = new YT.Player('yt-player', {
+        height: '315',
+        width: '100%',
+        videoId: 'n_-W7iqotuc',
+        playerVars: {
+            'autoplay': 1,
+            'controls': 1,
+            'rel': 0,
+            'origin': window.location.origin
+        },
+        events: {
+            'onReady': onPlayerReady
+        }
+    });
+}
+
+function onPlayerReady(event) {
+    event.target.setVolume(30);
+    event.target.playVideo();
 }
 
 // 22 Reasons Carousel Logic
@@ -175,35 +211,3 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextReason();
     if (e.key === 'ArrowLeft') prevReason();
 });
-
-let player;
-
-function onYouTubeIframeAPIReady() {
-    if (document.getElementById('player-container').style.display === 'block') {
-        createPlayer();
-    }
-}
-
-function createPlayer() {
-    if (player) {
-        player.destroy();
-    }
-    player = new YT.Player('yt-player', {
-        height: '315',
-        width: '100%',
-        videoId: 'n_-W7iqotuc',
-        playerVars: {
-            'autoplay': 1,
-            'controls': 1,
-            'origin': window.location.origin
-        },
-        events: {
-            'onReady': onPlayerReady
-        }
-    });
-}
-
-function onPlayerReady(event) {
-    event.target.setVolume(30);
-    event.target.playVideo();
-}
