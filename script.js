@@ -211,12 +211,3 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') nextReason();
     if (e.key === 'ArrowLeft') prevReason();
 });
-
-// Auto-play music on load (Note: Browsers may block this if no user interaction)
-document.addEventListener('DOMContentLoaded', () => {
-    // Simulate a click on the play button to start the process
-    const playBtn = document.getElementById('playBtn');
-    if (playBtn) {
-        playBtn.click();
-    }
-});
